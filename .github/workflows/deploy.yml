@@ -1,0 +1,51 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t kanishkaa123/kanishkaa:latest .
+        docker push kanishkaa123/kanishkaa:latest
+
+    - name: SSH and Deploy
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        port: 22
+        script: |
+          echo "Stopping existing container..."
+          sudo docker stop kanishkaa || true
+          
+          echo "Removing old container..."
+          sudo docker rm kanishkaa || true
+          
+          echo "Pulling latest image..."
+          sudo docker pull kanishkaa123/kanishkaa:latest
+          
+          echo "Starting new container..."
+          sudo docker run -d \
+            -p 80:8080 \
+            --restart always \
+            --name kanishkaa \
+            kanishkaa123/kanishkaa:latest
+          
+          echo "Deployment completed successfully!"
