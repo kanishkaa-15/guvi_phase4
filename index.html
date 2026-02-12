@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>KEC * GUVI Collaboration</title>
+    <style>
+      :root{
+        --kec:#0b3d91; /* deep blue */
+        --guvi:#ff6b6b; /* warm coral */
+        --accent:linear-gradient(135deg,var(--kec),var(--guvi));
+        --muted:#f6f8fb;
+        --glass: rgba(255,255,255,0.08);
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      }
+      *{box-sizing:border-box}
+      body{margin:0;background:radial-gradient(circle at 10% 10%, rgba(255,255,255,0.03), transparent), #07112a;color:#0b213d;}
+      header{background:var(--accent);color:white;padding:28px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+      .brand{display:flex;align-items:center;gap:14px}
+      .logo{display:inline-grid;place-items:center;width:56px;height:56px;border-radius:10px;background:rgba(255,255,255,0.12);font-weight:700}
+      .brand h1{margin:0;font-size:1.05rem;letter-spacing:0.4px}
+      nav a{color:rgba(255,255,255,0.95);text-decoration:none;margin-left:16px;font-weight:600}
+      main{max-width:1100px;margin:40px auto;padding:20px}
+      .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+      .hero .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:28px;border-radius:14px;backdrop-filter: blur(6px);}
+      h2{margin:0 0 12px 0;color:var(--kec)}
+      p.lead{color:#08304f;margin:0 0 18px 0;font-size:1.05rem}
+      .cta{display:inline-flex;gap:10px}
+      .btn{padding:10px 16px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
+      .btn-primary{background:var(--guvi);color:white}
+      .btn-outline{background:transparent;color:var(--kec);border:2px solid rgba(11,61,145,0.12)}
+      .panel{background:var(--muted);padding:18px;border-radius:12px}
+      .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+      .feature{background:white;padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+      footer{padding:24px 20px;text-align:center;color:#97a3b5}
+      @media (max-width:900px){
+        .hero{grid-template-columns:1fr}
+        .features{grid-template-columns:1fr}
+        header{flex-direction:column;align-items:flex-start}
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>
+          <svg width="40" height="24" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="46" height="56" rx="8" fill="white" opacity="0.12"/>
+            <text x="10" y="38" fill="white" font-family="sans-serif" font-size="28">KEC</text>
+            <rect x="52" y="2" width="46" height="56" rx="8" fill="white" opacity="0.12"/>
+            <text x="62" y="38" fill="white" font-family="sans-serif" font-size="20">GUVI</text>
+          </svg>
+        </div>
+        <div>
+          <h1>KEC × GUVI</h1>
+          <div style="font-size:12px;color:rgba(255,255,255,0.9)">Empowering learners through industry-academic collaboration</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#programs">Programs</a>
+        <a href="#contact">Contacts</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="card">
+          <h2>Collaboration that builds futures</h2>
+          <p class="lead">KEC and GUVI join forces to deliver hands-on tech education, internships, and placement-readiness for students — combining academic excellence with industry-grade upskilling.</p>
+          <div class="panel">
+            <strong>Outcomes:</strong>
+            <ul style="margin:8px 0 0 18px;padding:0;color:#264055">
+              <li>Project-based learning tracks</li>
+              <li>Industry mentors & hiring pipelines</li>
+              <li>Certification & placement support</li>
+            </ul>
+          </div>
+          <div style="margin-top:16px" class="cta">
+            <button class="btn btn-primary">Explore Programs</button>
+            <button class="btn btn-outline">Partner With Us</button>
+          </div>
+        </div>
+
+        <aside style="display:flex;flex-direction:column;gap:12px;">
+          <div class="panel">
+            <strong>Upcoming Batch</strong>
+            <div style="margin-top:8px;font-weight:600">Data & Web Development — April 2026</div>
+            <div style="font-size:13px;color:#36527a;margin-top:6px">Seats limited. Apply before March 20.</div>
+          </div>
+
+          <div class="panel">
+            <strong>Why this partnership?</strong>
+            <div style="font-size:13px;color:#2b4a63;margin-top:6px">Combines KEC's academic framework with GUVI's industry-aligned curriculum and placement network.</div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="programs" style="margin-top:28px">
+        <h2>Programs & Tracks</h2>
+        <div class="features">
+          <div class="feature">
+            <h3 style="margin:0 0 8px 0;color:var(--kec)">Full-Stack Web</h3>
+            <div style="font-size:13px;color:#234">Hands-on projects, React, Node, deployment and portfolio building.</div>
+          </div>
+          <div class="feature">
+            <h3 style="margin:0 0 8px 0;color:var(--kec)">Data Science</h3>
+            <div style="font-size:13px;color:#234">Python, ML fundamentals, case studies and internship placements.</div>
+          </div>
+          <div class="feature">
+            <h3 style="margin:0 0 8px 0;color:var(--kec)">Embedded Systems</h3>
+            <div style="font-size:13px;color:#234">Hardware projects, IoT use-cases, and industry collaborations.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" style="margin-top:28px">
+        <h2>About the Collaboration</h2>
+        <p style="color:#27445f">This initiative aims to align curriculum with employer needs, give students practical experience, and create a measurable pathway to employment. Each cohort includes live mentorship, capstone projects, and hiring drives supported by GUVI's network.</p>
+      </section>
+
+      <section id="contact" style="margin-top:28px">
+        <h2>Get Involved</h2>
+        <p style="color:#27445f">Interested students, faculty, or companies can reach out for cohort details, campus programs, or hiring partnerships.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+          <a href="mailto:partnerships@guvi.in" class="btn btn-outline">Email GUVI</a>
+          <a href="mailto:office@kec.edu" class="btn btn-outline">Email KEC</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>© <strong>KEC × GUVI</strong> — Learning together, hiring together.</div>
+        <div style="font-size:13px;color:#9fb0c9">Built for students • Powered by mentorship</div>
+      </div>
+    </footer>
+  </body>
+</html>
